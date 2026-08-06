@@ -45,7 +45,7 @@ def render_chatbot():
 
     # ── Clear chat button ───────────────────────────────────────────────────
     if st.session_state["chat_history"]:
-        if st.button("Clear Chat", key="clear_chat", use_container_width=False):
+        if st.button("Clear Chat", key="clear_chat", width='content'):
             st.session_state["chat_history"] = []
             st.rerun()
 

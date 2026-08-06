@@ -29,10 +29,10 @@ def render_ats_widget():
     col1, col2 = st.columns([1, 4], gap="small")
 
     with col1:
-        analyze_clicked = st.button("Analyze Match", key="ats_analyze", use_container_width=True)
+        analyze_clicked = st.button("Analyze Match", key="ats_analyze", width='stretch')
 
     with col2:
-        if st.button("Clear", key="ats_clear", use_container_width=True):
+        if st.button("Clear", key="ats_clear", width='stretch'):
             st.session_state["ats_result"] = None
             st.rerun()
 

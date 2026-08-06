@@ -78,7 +78,7 @@ def _render_language_chart(languages: dict):
         height=280,
     )
 
-    st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
+    st.plotly_chart(fig, width='stretch', config={"displayModeBar": False})
 
 
 def _render_repo_card(repo: dict):

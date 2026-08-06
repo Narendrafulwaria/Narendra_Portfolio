@@ -11,9 +11,9 @@ PERSONAL_INFO = {
     "tagline": "Data Analyst | AI Automation | Business Analytics",
     "location": "Mumbai, Maharashtra",
     "phone": "9833607051",
-    "email": "narendra.fulwaria@email.com",   # Replace with actual email
+    "email": "narendrafulwaria111@gmail.com",
     "github_url": "https://github.com/Narendrafulwaria",
-    "linkedin_url": "https://linkedin.com/in/narendra-fulwaria",  # Replace with actual URL
+    "linkedin_url": "https://www.linkedin.com/in/narendrafulwaria/",
     "bio": (
         "Electronics & Telecommunication Engineering graduate with 6+ years of "
         "business operations and retail management experience. Currently transitioning "
@@ -204,7 +204,7 @@ BLOG_POSTS = [
             "from webhook triggers to ATS scoring and recommendation generation."
         ),
         "date": "July 2025",
-        "url": "https://linkedin.com/in/narendra-fulwaria",  # Replace with actual article URL
+        "url": "https://www.linkedin.com/in/narendrafulwaria",  # Replace with actual article URL
     },
     {
         "title": "How n8n Changed the Way I Think About Automation",
@@ -213,7 +213,7 @@ BLOG_POSTS = [
             "manual processes and save hours every week."
         ),
         "date": "June 2025",
-        "url": "https://linkedin.com/in/narendra-fulwaria",  # Replace with actual article URL
+        "url": "https://www.linkedin.com/in/narendrafulwaria",  # Replace with actual article URL
     },
     {
         "title": "From Retail Manager to Data Analyst – My Transition Story",
@@ -222,7 +222,7 @@ BLOG_POSTS = [
             "while transitioning into Data Analytics and AI."
         ),
         "date": "May 2025",
-        "url": "https://linkedin.com/in/narendra-fulwaria",  # Replace with actual article URL
+        "url": "https://www.linkedin.com/in/narendrafulwaria",  # Replace with actual article URL
     },
 ]
 

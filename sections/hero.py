@@ -61,7 +61,7 @@ def render_hero():
         b1, b2, b3 = st.columns(3, gap="small")
 
         with b1:
-            if st.button("🗂 View Projects", key="hero_projects", use_container_width=True):
+            if st.button("🗂 View Projects", key="hero_projects", width='stretch'):
                 st.markdown(
                     "<script>document.getElementById('projects').scrollIntoView({behavior:'smooth'});</script>",
                     unsafe_allow_html=True,
@@ -77,14 +77,14 @@ def render_hero():
                         file_name="Narendra_Fulwaria_Resume.pdf",
                         mime="application/pdf",
                         key="hero_resume",
-                        use_container_width=True,
+                        width='stretch',
                     )
             else:
                 st.button("📄 Resume (soon)", disabled=True,
-                          use_container_width=True, key="hero_resume_placeholder")
+                          width='stretch', key="hero_resume_placeholder")
 
         with b3:
-            if st.button("✉️ Contact Me", key="hero_contact", use_container_width=True):
+            if st.button("✉️ Contact Me", key="hero_contact", width='stretch'):
                 st.markdown(
                     "<script>document.getElementById('contact').scrollIntoView({behavior:'smooth'});</script>",
                     unsafe_allow_html=True,

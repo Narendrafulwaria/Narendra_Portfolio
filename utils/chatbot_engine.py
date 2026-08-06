@@ -1,9 +1,9 @@
-# utils/chatbot_engine.py — Groq-powered AI chatbot (llama3-8b-8192)
+# utils/chatbot_engine.py — Groq-powered AI chatbot (llama-3.1-8b-instant)
 # Falls back to a static FAQ dict when GROQ_API_KEY is not configured.
 import streamlit as st
 from utils.data import PERSONAL_INFO, RESUME_TEXT, CHATBOT_FAQ
 
-_MODEL = "llama3-8b-8192"
+_MODEL = "llama-3.1-8b-instant"
 
 _SYSTEM_PROMPT_TEMPLATE = """You are a professional AI assistant representing {name}.
 Your job is to answer visitor questions about {name}'s skills, projects, work experience,
