@@ -8,7 +8,7 @@ from utils.data import PERSONAL_INFO
 def render_hero():
     st.markdown('<div id="home"></div>', unsafe_allow_html=True)
 
-    left, right = st.columns([1.1, 0.9], gap="large")
+    left, right = st.columns([1.45, 0.55], gap="large")
 
     with left:
         # ── Gradient name ──────────────────────────────────────────────
@@ -23,7 +23,7 @@ def render_hero():
             <style>
             .typewriter-wrap {
                 font-size: 1.15rem;
-                color: #94A3B8;
+                color: #475569;
                 font-weight: 500;
                 margin: 0.5rem 0 0.75rem;
                 min-height: 1.8rem;
@@ -57,49 +57,36 @@ def render_hero():
             unsafe_allow_html=True,
         )
 
-        # ── CTA buttons ────────────────────────────────────────────────
-        b1, b2, b3 = st.columns(3, gap="small")
-
-        with b1:
-            if st.button("🗂 View Projects", key="hero_projects", width='stretch'):
-                st.markdown(
-                    "<script>document.getElementById('projects').scrollIntoView({behavior:'smooth'});</script>",
-                    unsafe_allow_html=True,
+        # ── Download Resume ────────────────────────────────────────────
+        resume_path = "assets/resume.pdf"
+        if os.path.exists(resume_path):
+            with open(resume_path, "rb") as f:
+                st.download_button(
+                    label="📄 Download Resume",
+                    data=f.read(),
+                    file_name="Narendra_Fulwaria_Updated_Resume_v2.pdf",
+                    mime="application/pdf",
+                    key="hero_resume",
+                    width="stretch",
                 )
-
-        with b2:
-            resume_path = "assets/resume.pdf"
-            if os.path.exists(resume_path):
-                with open(resume_path, "rb") as f:
-                    st.download_button(
-                        label="📄 Download Resume",
-                        data=f.read(),
-                        file_name="Narendra_Fulwaria_Resume.pdf",
-                        mime="application/pdf",
-                        key="hero_resume",
-                        width='stretch',
-                    )
-            else:
-                st.button("📄 Resume (soon)", disabled=True,
-                          width='stretch', key="hero_resume_placeholder")
-
-        with b3:
-            if st.button("✉️ Contact Me", key="hero_contact", width='stretch'):
-                st.markdown(
-                    "<script>document.getElementById('contact').scrollIntoView({behavior:'smooth'});</script>",
-                    unsafe_allow_html=True,
-                )
+        else:
+            st.button(
+                "📄 Resume (soon)",
+                disabled=True,
+                width="stretch",
+                key="hero_resume_placeholder",
+            )
 
         # ── Social quick links ─────────────────────────────────────────
         st.markdown(
             f"""
             <div style="margin-top:1.25rem;display:flex;gap:1rem;">
                 <a href="{PERSONAL_INFO['github_url']}" target="_blank"
-                   style="color:#94A3B8;font-size:0.88rem;text-decoration:none;">
+                   style="color:#2563EB;font-size:0.88rem;text-decoration:none;">
                    🐙 GitHub
                 </a>
                 <a href="{PERSONAL_INFO['linkedin_url']}" target="_blank"
-                   style="color:#94A3B8;font-size:0.88rem;text-decoration:none;">
+                   style="color:#2563EB;font-size:0.88rem;text-decoration:none;">
                    💼 LinkedIn
                 </a>
             </div>
@@ -110,4 +97,4 @@ def render_hero():
     with right:
         render_3d_photo(height=360)
 
-    st.markdown("<hr style='border-color:#1E293B;margin:2rem 0;'>", unsafe_allow_html=True)
+    st.markdown("<hr style='border-color:#E2E8F0;margin:2rem 0;'>", unsafe_allow_html=True)

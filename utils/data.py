@@ -18,8 +18,10 @@ PERSONAL_INFO = {
         "Electronics & Telecommunication Engineering graduate with 6+ years of "
         "business operations and retail management experience. Currently transitioning "
         "into Data Analytics, Business Analytics, AI Automation and Generative AI. "
-        "Proven track record of driving business growth, managing teams, optimizing "
-        "inventory, analyzing business data and implementing customer retention strategies."
+        "Skilled in Python, SQL, Excel, Tableau, Power BI, Data Analysis and workflow "
+        "automation using n8n. Proven track record of driving business growth, managing "
+        "teams, optimizing inventory, analyzing business data and implementing customer "
+        "retention strategies."
     ),
     "traits": ["🧠 Analytical Thinker", "🔧 Problem Solver", "📚 Self-Learner"],
 }
@@ -157,6 +159,21 @@ CERTIFICATIONS = [
     {"name": "AI Agents & Autonomous Systems", "issuer": "Be10X", "status": "Completed"},
     {"name": "Career Readiness Using AI", "issuer": "Be10X", "status": "Completed"},
     {
+        "name": "AI Career Accelerator Program (6 Months)",
+        "issuer": "Be10X — Certificate of Mastery",
+        "status": "Completed",
+    },
+    {
+        "name": "Capstone Project — AI Career Accelerator Program",
+        "issuer": "Be10X — Certificate of Mastery",
+        "status": "Completed",
+    },
+    {
+        "name": "Cricket Analytics Advanced Masterclass",
+        "issuer": "Mad About Sports & Rajasthan Royals (May 2023)",
+        "status": "Completed",
+    },
+    {
         "name": "Data Analytics with AI & Generative AI",
         "issuer": "IIT Roorkee & Masai",
         "status": "In Progress",
@@ -186,10 +203,13 @@ ACHIEVEMENTS = [
         "detail": "End-to-end management of retail operations from inception.",
     },
     {
-        "icon": "🤖",
-        "value": "5+",
-        "label": "AI & Analytics Projects",
-        "detail": "GitHub projects demonstrating analytics, automation and SQL capabilities.",
+        "icon": "🔄",
+        "value": "Career",
+        "label": "Transition to Data & AI",
+        "detail": (
+            "Successfully transitioned from business operations into Data Analytics "
+            "and AI upskilling with multiple GitHub projects."
+        ),
     },
 ]
 
@@ -245,9 +265,11 @@ CHATBOT_FAQ = {
         "data-driven strategy."
     ),
     "certifications": (
-        "Narendra holds certifications in AI Fundamentals, AI Agents & Autonomous "
-        "Systems, AI Product Building, and Career Readiness Using AI — all from Be10X. "
-        "He is also pursuing Data Analytics with AI & Generative AI from IIT Roorkee & Masai."
+        "Narendra holds Be10X certifications in AI Fundamentals, AI Agents & Autonomous "
+        "Systems, AI Product Building, Career Readiness Using AI, and the AI Career "
+        "Accelerator Program (including Capstone). He also completed the Cricket Analytics "
+        "Advanced Masterclass with Mad About Sports & Rajasthan Royals, and is pursuing "
+        "Data Analytics with AI & Generative AI from IIT Roorkee & Masai."
     ),
     "availability": (
         "Narendra is actively looking for opportunities in Data Analytics, Business "
@@ -330,6 +352,9 @@ AI Fundamentals & Ecosystem Mastery – Be10X
 AI Product Building, Storytelling & Marketing – Be10X
 AI Agents & Autonomous Systems – Be10X
 Career Readiness Using AI – Be10X
+AI Career Accelerator Program (6 Months) – Be10X (Certificate of Mastery)
+Capstone Project – AI Career Accelerator Program – Be10X (Certificate of Mastery)
+Cricket Analytics Advanced Masterclass – Mad About Sports & Rajasthan Royals (May 2023)
 Data Analytics with AI & Generative AI – IIT Roorkee & Masai (In Progress)
 
 KEY ACHIEVEMENTS

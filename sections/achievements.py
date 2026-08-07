@@ -1,10 +1,12 @@
 # sections/achievements.py — Section 8: Key Achievements
 import streamlit as st
 from utils.data import ACHIEVEMENTS
+from utils.styles import section_start, section_end
 
 
 def render_achievements():
     st.markdown('<div id="achievements"></div>', unsafe_allow_html=True)
+    section_start("blue")
     st.markdown('<div class="section-heading">Key Achievements</div>', unsafe_allow_html=True)
 
     cols = st.columns(len(ACHIEVEMENTS), gap="medium")
@@ -28,4 +30,5 @@ def render_achievements():
                 unsafe_allow_html=True,
             )
 
-    st.markdown("<hr style='border-color:#1E293B;margin:2rem 0;'>", unsafe_allow_html=True)
+    section_end()
+    st.markdown("<hr style='border-color:#E2E8F0;margin:2rem 0;'>", unsafe_allow_html=True)

@@ -1,29 +1,33 @@
 # sections/certifications.py — Section 7: Certifications
 import streamlit as st
 from utils.data import CERTIFICATIONS
+from utils.styles import section_start, section_end
 
 
 def render_certifications():
     st.markdown('<div id="certifications"></div>', unsafe_allow_html=True)
+    section_start("light")
     st.markdown('<div class="section-heading">Certifications</div>', unsafe_allow_html=True)
 
-    left, right = st.columns(2, gap="medium")
-    half = (len(CERTIFICATIONS) + 1) // 2
+    cols_per_row = 3
+    rows = [CERTIFICATIONS[i:i + cols_per_row] for i in range(0, len(CERTIFICATIONS), cols_per_row)]
 
-    for col, chunk in zip([left, right], [CERTIFICATIONS[:half], CERTIFICATIONS[half:]]):
-        with col:
-            for cert in chunk:
+    for row in rows:
+        cols = st.columns(len(row), gap="medium")
+        for col, cert in zip(cols, row):
+            with col:
                 _render_cert_card(cert)
 
-    st.markdown("<hr style='border-color:#1E293B;margin:2rem 0;'>", unsafe_allow_html=True)
+    section_end()
+    st.markdown("<hr style='border-color:#E2E8F0;margin:2rem 0;'>", unsafe_allow_html=True)
 
 
 def _render_cert_card(cert: dict):
     status       = cert.get("status", "Completed")
     is_progress  = status == "In Progress"
-    badge_bg     = "rgba(245,158,11,0.15)" if is_progress else "rgba(16,185,129,0.15)"
-    badge_color  = "#FCD34D"              if is_progress else "#6EE7B7"
-    badge_border = "rgba(245,158,11,0.4)" if is_progress else "rgba(16,185,129,0.4)"
+    badge_bg     = "#FEF3C7" if is_progress else "#DCFCE7"
+    badge_color  = "#B45309" if is_progress else "#166534"
+    badge_border = "#FCD34D" if is_progress else "#86EFAC"
 
     name   = cert.get("name", "").replace("&", "&amp;").replace("<", "&lt;")
     issuer = cert.get("issuer", "").replace("&", "&amp;").replace("<", "&lt;")

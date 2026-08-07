@@ -44,9 +44,9 @@ def render_3d_photo(image_path: str = "assets/profile_placeholder.png", height: 
         transform-style: preserve-3d;
         transition: transform 0.08s linear, box-shadow 0.2s ease;
         cursor: pointer;
-        box-shadow: 0 20px 60px rgba(37, 99, 235, 0.35);
-        background: linear-gradient(145deg, #1E293B, #0F172A);
-        border: 2px solid rgba(37, 99, 235, 0.4);
+        box-shadow: 0 20px 60px rgba(37, 99, 235, 0.2);
+        background: linear-gradient(145deg, #FFFFFF, #EFF6FF);
+        border: 2px solid rgba(37, 99, 235, 0.35);
         overflow: hidden;
       }}
 
@@ -80,7 +80,7 @@ def render_3d_photo(image_path: str = "assets/profile_placeholder.png", height: 
         width: 260px;
         height: 300px;
         border-radius: 22px;
-        border: 1px solid rgba(37, 99, 235, 0.25);
+        border: 1px solid rgba(37, 99, 235, 0.2);
         top: -10px;
         left: -10px;
         pointer-events: none;
@@ -88,8 +88,8 @@ def render_3d_photo(image_path: str = "assets/profile_placeholder.png", height: 
       }}
 
       @keyframes pulseRing {{
-        0%,100% {{ box-shadow: 0 0 20px rgba(37,99,235,0.2); opacity: 0.6; }}
-        50%      {{ box-shadow: 0 0 40px rgba(37,99,235,0.4); opacity: 1.0; }}
+        0%,100% {{ box-shadow: 0 0 20px rgba(37,99,235,0.15); opacity: 0.6; }}
+        50%      {{ box-shadow: 0 0 40px rgba(37,99,235,0.3); opacity: 1.0; }}
       }}
 
       /* Placeholder shown when no image is provided */
@@ -100,9 +100,9 @@ def render_3d_photo(image_path: str = "assets/profile_placeholder.png", height: 
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(145deg, #1E293B, #0F172A);
+        background: linear-gradient(145deg, #EFF6FF, #FFFFFF);
         border-radius: 18px;
-        color: #94A3B8;
+        color: #475569;
         gap: 0.75rem;
       }}
 
@@ -145,7 +145,7 @@ def render_3d_photo(image_path: str = "assets/profile_placeholder.png", height: 
           card.style.transform =
             `perspective(700px) rotateX(${{rotX}}deg) rotateY(${{rotY}}deg) scale(1.04)`;
           card.style.boxShadow =
-            `${{-dx*20}}px ${{dy*20}}px 60px rgba(37,99,235,0.5)`;
+            `${{-dx*20}}px ${{dy*20}}px 60px rgba(37,99,235,0.35)`;
 
           // Move glare with cursor
           const mx = ((e.clientX - rect.left) / rect.width  * 100).toFixed(1);
@@ -159,7 +159,7 @@ def render_3d_photo(image_path: str = "assets/profile_placeholder.png", height: 
           card.style.transform =
             'perspective(700px) rotateX(0deg) rotateY(0deg) scale(1)';
           card.style.boxShadow =
-            '0 20px 60px rgba(37,99,235,0.35)';
+            '0 20px 60px rgba(37,99,235,0.2)';
           glare.style.opacity  = '0';
         }});
       </script>

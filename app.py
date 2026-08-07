@@ -11,7 +11,7 @@ st.set_page_config(
 
 # ── Imports ───────────────────────────────────────────────────────────────
 from utils.styles import inject_css
-from components.nav import render_nav
+from components.nav import render_nav, scroll_to_section
 from sections.hero import render_hero
 from sections.about import render_about
 from sections.skills import render_skills
@@ -56,3 +56,7 @@ render_chatbot()
 render_ats_widget()
 render_contact()
 render_footer()
+
+if st.session_state.get("nav_scroll_to"):
+    scroll_to_section(st.session_state["nav_scroll_to"])
+    st.session_state["nav_scroll_to"] = None

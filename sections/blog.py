@@ -2,10 +2,12 @@
 import streamlit as st
 from components.card import render_card
 from utils.data import BLOG_POSTS
+from utils.styles import section_start, section_end
 
 
 def render_blog():
     st.markdown('<div id="blog"></div>', unsafe_allow_html=True)
+    section_start("light")
     st.markdown('<div class="section-heading">Blog & Insights</div>', unsafe_allow_html=True)
 
     # ── Blog cards grid ───────────────────────────────────────────────────
@@ -34,4 +36,5 @@ def render_blog():
         unsafe_allow_html=True,
     )
 
-    st.markdown("<hr style='border-color:#1E293B;margin:2rem 0;'>", unsafe_allow_html=True)
+    section_end()
+    st.markdown("<hr style='border-color:#E2E8F0;margin:2rem 0;'>", unsafe_allow_html=True)

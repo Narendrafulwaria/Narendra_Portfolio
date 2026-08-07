@@ -6,20 +6,22 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import streamlit as st
 from utils.data import PERSONAL_INFO
+from utils.styles import section_start, section_end
 
 
 def render_contact():
     st.markdown('<div id="contact"></div>', unsafe_allow_html=True)
-    st.markdown('<div class="section-heading">Contact Me</div>', unsafe_allow_html=True)
+    section_start("bold")
+    st.markdown('<div class="section-heading section-heading--bold">Contact Me</div>', unsafe_allow_html=True)
 
-    left, right = st.columns([1, 1], gap="large")
+    left, right = st.columns([0.9, 1.1], gap="large")
 
     with left:
         # ── Contact details ───────────────────────────────────────────────
         st.markdown(
             """
             <div style="margin-bottom:1.5rem;">
-                <p style="color:#94A3B8;font-size:0.95rem;margin-bottom:0.75rem;">
+                <p class="contact-lead" style="color:#475569;font-size:0.95rem;margin-bottom:0.75rem;">
                     Feel free to reach out for collaborations, opportunities, or just to say hello!
                 </p>
             </div>
@@ -32,15 +34,15 @@ def render_contact():
             <div style="display:flex;flex-direction:column;gap:0.75rem;">
                 <div style="display:flex;align-items:center;gap:0.75rem;">
                     <span style="font-size:1.2rem;">📍</span>
-                    <span style="color:#CBD5E1;font-size:0.95rem;">{PERSONAL_INFO.get("location", "")}</span>
+                    <span class="contact-detail" style="color:#0F172A;font-size:0.95rem;">{PERSONAL_INFO.get("location", "")}</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:0.75rem;">
                     <span style="font-size:1.2rem;">📞</span>
-                    <span style="color:#CBD5E1;font-size:0.95rem;">{PERSONAL_INFO.get("phone", "")}</span>
+                    <span class="contact-detail" style="color:#0F172A;font-size:0.95rem;">{PERSONAL_INFO.get("phone", "")}</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:0.75rem;">
                     <span style="font-size:1.2rem;">📧</span>
-                    <span style="color:#CBD5E1;font-size:0.95rem;">{PERSONAL_INFO.get("email", "")}</span>
+                    <span class="contact-detail" style="color:#0F172A;font-size:0.95rem;">{PERSONAL_INFO.get("email", "")}</span>
                 </div>
             </div>
             """,
@@ -54,11 +56,11 @@ def render_contact():
             f"""
             <div style="display:flex;gap:1rem;">
                 <a href="{PERSONAL_INFO.get('github_url', '')}" target="_blank"
-                   style="color:#94A3B8;font-size:0.9rem;text-decoration:none;">
+                   class="contact-social-link" style="color:#2563EB;font-size:0.9rem;text-decoration:none;">
                    🐙 GitHub
                 </a>
                 <a href="{PERSONAL_INFO.get('linkedin_url', '')}" target="_blank"
-                   style="color:#94A3B8;font-size:0.9rem;text-decoration:none;">
+                   class="contact-social-link" style="color:#2563EB;font-size:0.9rem;text-decoration:none;">
                    💼 LinkedIn
                 </a>
             </div>
@@ -99,10 +101,24 @@ def render_contact():
                             """,
                             unsafe_allow_html=True,
                         )
+                    elif error_msg == "contact_unconfigured":
+                        st.info(
+                            "The contact form is not connected to email yet. "
+                            "Please use the email or LinkedIn link on the left to reach out directly."
+                        )
                     else:
                         st.error(f"Failed to send message: {error_msg}")
 
-    st.markdown("<hr style='border-color:#1E293B;margin:2rem 0;'>", unsafe_allow_html=True)
+    section_end()
+    st.markdown("<hr style='border-color:#E2E8F0;margin:2rem 0;'>", unsafe_allow_html=True)
+
+
+def _get_secret(key: str) -> str:
+    """Read a Streamlit secret; return empty string when secrets are not configured."""
+    try:
+        return st.secrets.get(key, "") or ""
+    except Exception:
+        return ""
 
 
 def _send_email(sender_name: str, sender_email: str, message: str) -> tuple[bool, str]:
@@ -111,12 +127,12 @@ def _send_email(sender_name: str, sender_email: str, message: str) -> tuple[bool
     Returns (True, "") on success or (False, error_message) on failure.
     """
     try:
-        gmail_user     = st.secrets.get("GMAIL_SENDER", "")
-        gmail_password = st.secrets.get("GMAIL_APP_PASSWORD", "")
+        gmail_user     = _get_secret("GMAIL_SENDER")
+        gmail_password = _get_secret("GMAIL_APP_PASSWORD")
         recipient      = PERSONAL_INFO.get("email", "")
 
         if not gmail_user or not gmail_password:
-            return False, "Email credentials not configured in secrets.toml"
+            return False, "contact_unconfigured"
 
         # Build the email
         msg = MIMEMultipart("alternative")

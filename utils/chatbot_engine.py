@@ -50,9 +50,10 @@ def get_response(user_message: str, chat_history: list) -> str:
     if _has_groq_key():
         try:
             return _groq_response(user_message, chat_history)
-        except Exception as exc:
-            # Log to Streamlit and fall through to FAQ
-            st.warning(f"Chatbot API error: {exc}. Falling back to FAQ mode.")
+        except Exception:
+            # Keep the experience smooth even if the Groq SDK is unavailable
+            # or the API call fails unexpectedly.
+            return _faq_response(user_message)
 
     # ---- Static FAQ fallback -----------------------------------------
     return _faq_response(user_message)

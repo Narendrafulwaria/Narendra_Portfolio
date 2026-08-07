@@ -3,10 +3,12 @@ import streamlit as st
 import plotly.graph_objects as go
 from utils.github_api import fetch_github_stats
 from utils.data import PERSONAL_INFO
+from utils.styles import section_start, section_end
 
 
 def render_github_stats():
     st.markdown('<div id="github"></div>', unsafe_allow_html=True)
+    section_start("light")
     st.markdown('<div class="section-heading">GitHub</div>', unsafe_allow_html=True)
 
     username = "Narendrafulwaria"
@@ -16,6 +18,8 @@ def render_github_stats():
 
     if stats.get("error"):
         _render_fallback(username, stats["error"])
+        section_end()
+        st.markdown("<hr style='border-color:#E2E8F0;margin:2rem 0;'>", unsafe_allow_html=True)
         return
 
     # ── Metric cards ─────────────────────────────────────────────────────
@@ -38,7 +42,7 @@ def render_github_stats():
         _render_language_chart(stats["languages"])
 
     # ── Top repos grid ───────────────────────────────────────────────────
-    st.markdown('<p style="color:#94A3B8;font-size:0.9rem;margin-bottom:0.75rem;">Top Repositories</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#475569;font-size:0.9rem;margin-bottom:0.75rem;">Top Repositories</p>', unsafe_allow_html=True)
 
     repos_per_row = 3
     repo_rows = [stats["top_repos"][i:i + repos_per_row] for i in range(0, len(stats["top_repos"]), repos_per_row)]
@@ -49,7 +53,8 @@ def render_github_stats():
             with col:
                 _render_repo_card(repo)
 
-    st.markdown("<hr style='border-color:#1E293B;margin:2rem 0;'>", unsafe_allow_html=True)
+    section_end()
+    st.markdown("<hr style='border-color:#E2E8F0;margin:2rem 0;'>", unsafe_allow_html=True)
 
 
 def _render_language_chart(languages: dict):
@@ -62,17 +67,17 @@ def _render_language_chart(languages: dict):
         values=values,
         hole=0.6,
         marker=dict(
-            colors=["#2563EB", "#06B6D4", "#10B981", "#F59E0B", "#8B5CF6", "#EC4899"][:len(labels)],
-            line=dict(color="#1E293B", width=2)
+            colors=["#2563EB", "#3B82F6", "#60A5FA", "#93C5FD", "#1D4ED8", "#1E40AF"][:len(labels)],
+            line=dict(color="#FFFFFF", width=2)
         ),
         textinfo="label+percent",
-        textfont=dict(size=11, color="#CBD5E1"),
+        textfont=dict(size=11, color="#0F172A"),
         hoverinfo="label+value",
     )])
 
     fig.update_layout(
-        paper_bgcolor="#0F172A",
-        plot_bgcolor="#0F172A",
+        paper_bgcolor="#FFFFFF",
+        plot_bgcolor="#FFFFFF",
         showlegend=False,
         margin=dict(t=20, b=20, l=20, r=20),
         height=280,
@@ -114,7 +119,7 @@ def _render_fallback(username: str, error: str):
     st.markdown(
         f"""
         <div style="text-align:center;padding:2rem;">
-            <p style="color:#94A3B8;margin-bottom:1rem;">
+            <p style="color:#475569;margin-bottom:1rem;">
                 Visit the GitHub profile directly to see repositories.
             </p>
             <a href="https://github.com/{username}" target="_blank"

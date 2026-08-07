@@ -4,7 +4,7 @@ from utils.data import PERSONAL_INFO
 
 
 def render_footer():
-    st.markdown("<hr style='border-color:#1E293B;margin:2rem 0;'>", unsafe_allow_html=True)
+    st.markdown("<hr style='border-color:#E2E8F0;margin:2rem 0;'>", unsafe_allow_html=True)
 
     st.markdown(
         """
@@ -20,10 +20,10 @@ def render_footer():
     st.markdown(
         """
         <div style="display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;">
-            <a href="#home" style="color:#94A3B8;font-size:0.85rem;text-decoration:none;">Home</a>
-            <a href="#about" style="color:#94A3B8;font-size:0.85rem;text-decoration:none;">About</a>
-            <a href="#projects" style="color:#94A3B8;font-size:0.85rem;text-decoration:none;">Projects</a>
-            <a href="#contact" style="color:#94A3B8;font-size:0.85rem;text-decoration:none;">Contact</a>
+            <a href="#home" style="color:#475569;font-size:0.85rem;text-decoration:none;">Home</a>
+            <a href="#about" style="color:#475569;font-size:0.85rem;text-decoration:none;">About</a>
+            <a href="#projects" style="color:#475569;font-size:0.85rem;text-decoration:none;">Projects</a>
+            <a href="#contact" style="color:#475569;font-size:0.85rem;text-decoration:none;">Contact</a>
         </div>
         """,
         unsafe_allow_html=True,
@@ -34,11 +34,11 @@ def render_footer():
         f"""
         <div style="display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;">
             <a href="{PERSONAL_INFO.get('github_url', '')}" target="_blank"
-               style="color:#94A3B8;font-size:1.2rem;text-decoration:none;">
+               style="color:#2563EB;font-size:1.2rem;text-decoration:none;">
                🐙
             </a>
             <a href="{PERSONAL_INFO.get('linkedin_url', '')}" target="_blank"
-               style="color:#94A3B8;font-size:1.2rem;text-decoration:none;">
+               style="color:#2563EB;font-size:1.2rem;text-decoration:none;">
                💼
             </a>
         </div>

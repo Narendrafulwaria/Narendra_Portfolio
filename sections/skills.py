@@ -2,22 +2,22 @@
 import streamlit as st
 from components.skill_chart import render_skill_chart
 from utils.data import SKILLS
+from utils.styles import section_start, section_end
 
-# One colour per skill category (cycles if more categories added)
 _BADGE_COLORS = [
-    ("rgba(37,99,235,0.15)",  "#93C5FD", "rgba(37,99,235,0.35)"),   # blue
-    ("rgba(16,185,129,0.15)", "#6EE7B7", "rgba(16,185,129,0.35)"),  # green
-    ("rgba(139,92,246,0.15)", "#C4B5FD", "rgba(139,92,246,0.35)"),  # purple
-    ("rgba(245,158,11,0.15)", "#FCD34D", "rgba(245,158,11,0.35)"),  # yellow
-    ("rgba(236,72,153,0.15)", "#F9A8D4", "rgba(236,72,153,0.35)"),  # pink
+    ("#EFF6FF", "#1D4ED8", "#BFDBFE"),
+    ("#DBEAFE", "#1E40AF", "#93C5FD"),
+    ("#E0F2FE", "#0369A1", "#7DD3FC"),
+    ("#F0F9FF", "#0C4A6E", "#BAE6FD"),
+    ("#EFF6FF", "#2563EB", "#BFDBFE"),
 ]
 
 
 def render_skills():
     st.markdown('<div id="skills"></div>', unsafe_allow_html=True)
+    section_start("light")
     st.markdown('<div class="section-heading">Technical Skills</div>', unsafe_allow_html=True)
 
-    # ── Badge grid ─────────────────────────────────────────────────────
     for idx, (category, skill_list) in enumerate(SKILLS.items()):
         bg, color, border = _BADGE_COLORS[idx % len(_BADGE_COLORS)]
 
@@ -39,7 +39,6 @@ def render_skills():
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # ── Skill chart (progress bars / radar) ───────────────────────────
     st.markdown(
         '<p style="color:#64748B;font-size:0.82rem;margin-bottom:0.5rem;">'
         'Proficiency levels are self-assessed estimates.</p>',
@@ -47,4 +46,5 @@ def render_skills():
     )
     render_skill_chart()
 
-    st.markdown("<hr style='border-color:#1E293B;margin:2rem 0;'>", unsafe_allow_html=True)
+    section_end()
+    st.markdown("<hr style='border-color:#E2E8F0;margin:2rem 0;'>", unsafe_allow_html=True)

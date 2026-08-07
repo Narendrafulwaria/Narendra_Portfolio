@@ -99,12 +99,12 @@ try:
     assert "In Progress" in src,  "Missing In Progress badge logic"
     assert "Completed"   in src,  "Missing Completed badge logic"
     assert 'id="certifications"' in src
-    assert len(CERTIFICATIONS) == 5
+    assert len(CERTIFICATIONS) == 8
     in_prog = [c for c in CERTIFICATIONS if c["status"] == "In Progress"]
     completed = [c for c in CERTIFICATIONS if c["status"] == "Completed"]
     assert len(in_prog)  == 1, f"Expected 1 In Progress, got {len(in_prog)}"
-    assert len(completed) == 4, f"Expected 4 Completed, got {len(completed)}"
-    print(f"[PASS] certifications.py — 5 certs, 4 Completed, 1 In Progress, badges OK")
+    assert len(completed) == 7, f"Expected 7 Completed, got {len(completed)}"
+    print(f"[PASS] certifications.py — 8 certs, 7 Completed, 1 In Progress, badges OK")
 except Exception as e:
     errors.append(f"[FAIL] certifications.py structural: {e}")
 
